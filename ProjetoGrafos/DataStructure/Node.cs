@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoGrafos.DataStructure
 {
-    /// <summary>>
+    /// <summary>> alteração
     /// Classe que representa um nó dentro de um grafo.
     /// </summary>
     public class Node
