@@ -58,7 +58,11 @@ namespace ProjetoGrafos.DataStructure
                 foreach( Node item in nodes)
                 {
                     if (name.Equals(item.Name))
+                    {
+                        Console.WriteLine("ACHOU " + item.Name);
                         return item;
+                    }
+                        
                 }
             return null;
         }
@@ -74,7 +78,11 @@ namespace ProjetoGrafos.DataStructure
             
 
             if (Find(name) == null)
-                nodes.Add(n);
+            {
+                Console.WriteLine("adicionando no: " + n);
+                nodes.Add(n);    
+            }
+                
 
         }
         /// <summary>>
@@ -97,7 +105,14 @@ namespace ProjetoGrafos.DataStructure
         /// <param name="name">O nome do nó a ser removido.</param>
         public void RemoveNode(string name)
         {
-            
+            Node n = Find(name);
+            Console.WriteLine("nó para remover: " + n + "" + name);
+
+            if ( n!= null)
+            {
+                Console.WriteLine("remover " + n);
+                nodes.Remove(n);
+            }
         }
 
         /// <summary>
@@ -108,6 +123,11 @@ namespace ProjetoGrafos.DataStructure
         /// <param name="cost">O cust associado.</param>
         public void AddEdge(string from, string to, double cost)
         {
+            Node de = Find(from);
+            Node para = Find(to);
+
+            if(de!=null && para!=null)
+                de.AddEdge(para,cost);  
         }
 
         /// <summary>
@@ -117,6 +137,10 @@ namespace ProjetoGrafos.DataStructure
         /// <returns></returns>
         public Node[] GetNeighbours(string from)
         {
+            Node no = Find(from);
+
+            no.Edges.s
+
             return null;
         }
 
