@@ -138,8 +138,22 @@ namespace ProjetoGrafos.DataStructure
         public Node[] GetNeighbours(string from)
         {
             Node no = Find(from);
+            
 
-            no.Edges.s
+            int qtde = no.Edges.Count;
+            Console.WriteLine(qtde);
+
+            foreach (var item in no.Edges)
+            {
+                Console.WriteLine(item.To.ToString());
+                
+                
+
+            }
+
+
+
+           
 
             return null;
         }
