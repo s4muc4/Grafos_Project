@@ -59,7 +59,7 @@ namespace ProjetoGrafos.DataStructure
                 {
                     if (name.Equals(item.Name))
                     {
-                        Console.WriteLine("ACHOU " + item.Name);
+                        
                         return item;
                     }
                         
@@ -106,11 +106,22 @@ namespace ProjetoGrafos.DataStructure
         public void RemoveNode(string name)
         {
             Node n = Find(name);
-            Console.WriteLine("nó para remover: " + n + "" + name);
+
+            Console.WriteLine("nó para remover: " + n);
 
             if ( n!= null)
             {
-                Console.WriteLine("remover " + n);
+                foreach (var node in nodes)
+                {
+                    Edge [] edgeAux = node.Edges.ToArray();
+                    foreach (var edge in edgeAux)
+                    {
+                        if(edge.To==n)
+                        {
+                            node.Edges.Remove(edge);
+                        }
+                    }
+                }
                 nodes.Remove(n);
             }
         }
@@ -138,19 +149,21 @@ namespace ProjetoGrafos.DataStructure
         public Node[] GetNeighbours(string from)
         {
             Node no = Find(from);
-            
-
             int qtde = no.Edges.Count;
+            int i = 0;
+            bool achou = false;
+            Node[] vizinhos = new Node [qtde];
+           
             Console.WriteLine(qtde);
 
             foreach (var item in no.Edges)
             {
                 Console.WriteLine(item.To.ToString());
-                
-                
-
+                vizinhos[i++] = item.To;
+                achou = true;
             }
-
+            if (achou = true)
+                return vizinhos;
 
 
            
